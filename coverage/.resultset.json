@@ -1,0 +1,33 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/jphoenix/Dropbox/turing/1module/projects/chisel/lib/chisel.rb": [
+        1,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/jphoenix/Dropbox/turing/1module/projects/chisel/test/renderer_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/jphoenix/Dropbox/turing/1module/projects/chisel/lib/renderer.rb": [
+        1,
+        1,
+        2,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1433804141
+  }
+}
