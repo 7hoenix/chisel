@@ -13,4 +13,8 @@ class Chisel
     Renderer.render(chunked_text)
   end
 
+  def call_emphasizer(rendered_text)
+    Emphasizer.emphasize(rendered_text)
+  end
+
 end

@@ -3,26 +3,23 @@ SimpleCov.start
 
 require_relative "../lib/chisel"
 require_relative "../lib/renderer"
-require_relative "../lib/emphasis_maker"
+require_relative "../lib/emphasizer"
 
 class ChiselTest < Minitest::Test
   def test_acceptance_test
+    skip
+    # too low level.
     sample_text = "#Hello, *world*\n\nHello, **world**"
-    chisel = Chisel.new(sample_text)
-
-    assert chisel
 
     chunks = ChunkMaker.make(sample_text)
 
     assert_equal ["#Hello, *world*", "Hello, **world**"], chunks
-    assert_equal "#Hello, *world*", chunks[0]
-    assert_equal "Hello, **world**", chunks[1]
 
     rendered = Renderer.render(chunks)
 
     assert_equal ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"], rendered
 
-    emphasized = EmphasisMaker.emphasize(rendered)
+    emphasized = Emphasizer.emphasize(rendered)
 
     assert_equal ["<h1>Hello, <em>world</em></h1>", "<p>Hello, <strong>world</strong></p>"], emphasized
   end
@@ -30,7 +27,7 @@ class ChiselTest < Minitest::Test
   def test_it_passes_text_to_chunk_maker
     sample_text = "#Hello, *world*\n\nHello, **world**"
     chisel = Chisel.new(sample_text)
-    
+
     assert_equal ["#Hello, *world*", "Hello, **world**"], chisel.call_chunk_maker(sample_text)
   end
 
@@ -43,6 +40,7 @@ class ChiselTest < Minitest::Test
   end
 
   def test_it_passes_rendered_text_to_emphasizer
+    skip
     sample_text = ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"]
     chisel = Chisel.new(sample_text)
 
