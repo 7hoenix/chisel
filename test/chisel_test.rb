@@ -2,23 +2,52 @@ require 'simplecov'
 SimpleCov.start
 
 require_relative "../lib/chisel"
+require_relative "../lib/renderer"
+require_relative "../lib/emphasis_maker"
 
 class ChiselTest < Minitest::Test
   def test_acceptance_test
-    sample_text = "*Hello, world/n/nHello, world"
+    sample_text = "#Hello, *world*\n\nHello, **world**"
     chisel = Chisel.new(sample_text)
 
     assert chisel
 
-    rendered = Renderer.new(sample_text)
-    text_blocks = []
-    rendered.each { |text| text_blocks << text }
+    chunks = ChunkMaker.make(sample_text)
 
-    assert_equal "<h1>Hello, world</h1>", text_blocks[0]
-    assert_equal "<p>Hello, world</p>", text_blocks[1]
+    assert_equal ["#Hello, *world*", "Hello, **world**"], chunks
+    assert_equal "#Hello, *world*", chunks[0]
+    assert_equal "Hello, **world**", chunks[1]
+
+    rendered = Renderer.render(chunks)
+
+    assert_equal ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"], rendered
+
+    emphasized = EmphasisMaker.emphasize(rendered)
+
+    assert_equal ["<h1>Hello, <em>world</em></h1>", "<p>Hello, <strong>world</strong></p>"], emphasized
   end
 
-  def test_it_exits
-    assert Chisel.new("")
+  def test_it_passes_text_to_chunk_maker
+    sample_text = "#Hello, *world*\n\nHello, **world**"
+    chisel = Chisel.new(sample_text)
+    
+    assert_equal ["#Hello, *world*", "Hello, **world**"], chisel.call_chunk_maker(sample_text)
   end
+
+  def test_it_passes_chunked_text_to_renderer
+    sample_text = ["#Hello, *world*", "Hello, **world**"]
+    chisel = Chisel.new(sample_text)
+
+    expected = ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"]
+    assert_equal expected, chisel.call_renderer(sample_text)
+  end
+
+  def test_it_passes_rendered_text_to_emphasizer
+    sample_text = ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"]
+    chisel = Chisel.new(sample_text)
+
+    expected = ["<h1>Hello, <em>world</em></h1>", "<p>Hello, <strong>world</strong></p>"]
+    assert_equal expected, chisel.call_emphasizer(sample_text)
+  end
+
 end

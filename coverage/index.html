@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-06-08T16:55:41-06:00">2015-06-08T16:55:41-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-06-08T19:12:01-06:00">2015-06-08T19:12:01-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.19
+         6.61
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>3</b> files in total.
-    <b>11</b> relevant lines. 
-    <span class="green"><b>11</b> lines covered</span> and
+    <b>7</b> files in total.
+    <b>41</b> relevant lines. 
+    <span class="green"><b>41</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -53,15 +53,25 @@
       <tr>
         <td class="strong"><a href="#0eb18b096ade2f29ecb138d74b37896acdc88acc" class="src_link" title="lib/chisel.rb">lib/chisel.rb</a></td>
         <td class="green strong">100.0 %</td>
+        <td>16</td>
         <td>8</td>
-        <td>4</td>
-        <td>4</td>
+        <td>8</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#1f728dca94d2758a0637a720a06ab15125efa37b" class="src_link" title="lib/renderer.rb">lib/renderer.rb</a></td>
+        <td class="strong"><a href="#d513694f44d1791b7c20dfc7c2d2a00bb25cc784" class="src_link" title="lib/chunk_maker.rb">lib/chunk_maker.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>7</td>
+        <td>3</td>
+        <td>3</td>
+        <td>0</td>
+        <td>1.7</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#9c382e5171b4d462499a1f1a4fa41227891da460" class="src_link" title="lib/emphasis_maker.rb">lib/emphasis_maker.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>5</td>
         <td>3</td>
@@ -71,11 +81,41 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#1f728dca94d2758a0637a720a06ab15125efa37b" class="src_link" title="lib/renderer.rb">lib/renderer.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>17</td>
+        <td>10</td>
+        <td>10</td>
+        <td>0</td>
+        <td>23.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#3287e608103c8c013ba3da8ad288023606ffbd69" class="src_link" title="test/chunk_maker_test.rb">test/chunk_maker_test.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>10</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#6eb28059378d55e2b265afd868e7e113fba2ad1d" class="src_link" title="test/emphasis_maker_test.rb">test/emphasis_maker_test.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>8</td>
+        <td>5</td>
+        <td>5</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#8e445bf1f7d6dee6db8ca3caf9116f299d85f9b0" class="src_link" title="test/renderer_test.rb">test/renderer_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>4</td>
-        <td>4</td>
+        <td>10</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -101,8 +141,8 @@
     <h3>lib/chisel.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>8</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -131,13 +171,13 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  def initialize(sample_text)</code>
+          <code class="ruby">  def initialize(input_text)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="5">
+          <span class="hits">4</span>
           
-          <code class="ruby">    @text = sample_text</code>
+          <code class="ruby">    @text = input_text</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -152,7 +192,55 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def call_chunk_maker(text)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    ChunkMaker.make(text)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def call_renderer(chunked_text)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    Renderer.render(chunked_text)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">end</code>
@@ -162,9 +250,9 @@
   </pre>
 </div>
       
-        <div class="source_table" id="1f728dca94d2758a0637a720a06ab15125efa37b">
+        <div class="source_table" id="d513694f44d1791b7c20dfc7c2d2a00bb25cc784">
   <div class="header">
-    <h3>lib/renderer.rb</h3>
+    <h3>lib/chunk_maker.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>3</b> relevant lines. 
@@ -179,19 +267,79 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Renderer</code>
+          <code class="ruby">class ChunkMaker</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  def initialize(sample_text)</code>
+          <code class="ruby">  def self.make(text_block)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby">    #sample_text == &quot;#Hello, world/n/nHello, world&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="4">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    split_text_blocks = text_block.split(&quot;\n\n&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    #[&quot;#Hello, *world*&quot;, &quot;Hello, **world**&quot;]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="9c382e5171b4d462499a1f1a4fa41227891da460">
+  <div class="header">
+    <h3>lib/emphasis_maker.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class EmphasisMaker</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.emphasize(sample_text)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="3">
           <span class="hits">2</span>
           
-          <code class="ruby">    @text = &quot;Hello, world&quot;</code>
+          <code class="ruby">    [&quot;&lt;h1&gt;Hello, &lt;em&gt;world&lt;/em&gt;&lt;/h1&gt;&quot;, &quot;&lt;p&gt;Hello, &lt;strong&gt;world&lt;/strong&gt;&lt;/p&gt;&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
@@ -210,13 +358,277 @@
   </pre>
 </div>
       
+        <div class="source_table" id="1f728dca94d2758a0637a720a06ab15125efa37b">
+  <div class="header">
+    <h3>lib/renderer.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>10</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Renderer</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.render(chunked_text)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="3">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    rendered = chunked_text.map do |chunk|</code>
+        </li>
+      
+        <li class="covered" data-hits="99" data-linenumber="4">
+          <span class="hits">99</span>
+          
+          <code class="ruby">      count = chunk.chars.count { |char| char == &quot;#&quot; }</code>
+        </li>
+      
+        <li class="covered" data-hits="99" data-linenumber="5">
+          <span class="hits">99</span>
+          
+          <code class="ruby">      new_chunk = chunk.chars.reject { |char| char == &quot;#&quot; }</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="6">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      &quot;&lt;#{self.header(count)}&gt;#{new_chunk.join}&lt;/#{self.header(count)}&gt;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.header(count)</code>
+        </li>
+      
+        <li class="covered" data-hits="12" data-linenumber="11">
+          <span class="hits">12</span>
+          
+          <code class="ruby">    if count == 0</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="12">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      &quot;p&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="14">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      &quot;h#{count}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="3287e608103c8c013ba3da8ad288023606ffbd69">
+  <div class="header">
+    <h3>test/chunk_maker_test.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/chunk_maker&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class ChunkMakerTest &lt; Minitest::Test</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_it_takes_in_a_block_of_text_and_returns_an_array_of_chunks</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sample_text = &quot;#Hello, *world*\n\nHello, **world**&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    chunks = ChunkMaker.make(sample_text)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    assert_equal [&quot;#Hello, *world*&quot;, &quot;Hello, **world**&quot;], chunks</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="6eb28059378d55e2b265afd868e7e113fba2ad1d">
+  <div class="header">
+    <h3>test/emphasis_maker_test.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class EmphasisMakerTest &lt; Minitest::Test</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_it_takes_in_a_block_with_no_emphasis_and_gives_it_emphasis</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sample_text = [&quot;&lt;h1&gt;Hello, *world*&lt;/h1&gt;&quot;, &quot;&lt;p&gt;Hello, **world**&lt;/p&gt;&quot;]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    emphasize = EmphasisMaker.emphasize(sample_text)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    assert_equal [&quot;&lt;h1&gt;Hello, &lt;em&gt;world&lt;/em&gt;&lt;/h1&gt;&quot;, &quot;&lt;p&gt;Hello, &lt;strong&gt;world&lt;/strong&gt;&lt;/p&gt;&quot;], emphasize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
         <div class="source_table" id="8e445bf1f7d6dee6db8ca3caf9116f299d85f9b0">
   <div class="header">
     <h3>test/renderer_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -245,22 +657,40 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_it_exists</code>
+          <code class="ruby">  def test_it_takes_in_a_text_block_and_returns_the_correct_html_signs_instead_as_an_array</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert Renderer.new(&quot;&quot;)</code>
+          <code class="ruby">    sample_text = [&quot;#Hello, *world*&quot;, &quot;Hello, **world**&quot;]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    renderer = Renderer.render(sample_text)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    assert_equal [&quot;&lt;h1&gt;Hello, *world*&lt;/h1&gt;&quot;, &quot;&lt;p&gt;Hello, **world**&lt;/p&gt;&quot;], renderer</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">end</code>
