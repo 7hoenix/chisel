@@ -7,7 +7,6 @@ require_relative "../lib/emphasizer"
 
 class ChiselTest < Minitest::Test
   def test_acceptance_test
-    skip
     # too low level.
     sample_text = "#Hello, *world*\n\nHello, **world**"
 
@@ -40,7 +39,6 @@ class ChiselTest < Minitest::Test
   end
 
   def test_it_passes_rendered_text_to_emphasizer
-    skip
     sample_text = ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"]
     chisel = Chisel.new(sample_text)
 

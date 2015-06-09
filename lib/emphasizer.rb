@@ -2,9 +2,10 @@ require 'pry'
 
 class Emphasizer
   def self.emphasize(rendered_text)
-    strong_text = self.strong_replacement(rendered_text)
-    emphasized_text = self.italic_replacement(strong_text)
-    #"words <strong>it</strong> words"
+    emphasized_text = rendered_text.map do |chunk|
+      strong_text = self.strong_replacement(chunk)
+      self.italic_replacement(strong_text)
+    end
   end
 
   def self.strong_replacement(rendered_text)
