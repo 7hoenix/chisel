@@ -28,11 +28,10 @@ class RendererTest < Minitest::Test
   end
 
   def test_it_takes_in_a_chunk_and_checks_if_it_is_a_list_or_not
-    skip
     sample_text = ["\n* I'm an unordered list"]
     renderer = Renderer.new(sample_text)
 
-    expected = ["<ul>\n<li> I'm an unordered list</li>\n</ul>"]
+    expected = ["<ul><li>I'm an unordered list</li></ul>"]
     assert_equal expected, renderer.render
   end
 end
