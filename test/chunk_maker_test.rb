@@ -1,3 +1,6 @@
+require "minitest/autorun"
+require "minitest/pride"
+
 require_relative "../lib/chunk_maker"
 
 class ChunkMakerTest < Minitest::Test

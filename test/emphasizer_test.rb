@@ -1,3 +1,6 @@
+require "minitest/autorun"
+require "minitest/pride"
+
 class EmphasizerTest < Minitest::Test
   # ["<h1>Hello, *world*</h1>", "<p>Hello, **world**</p>"]
   # This could be easier with
