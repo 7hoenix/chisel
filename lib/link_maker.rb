@@ -7,20 +7,14 @@ class LinkMaker
     end
   end
 
-  #"<a href=\"http://example.net/\">This link</a> has no domain_titleattribut."
   def self.transformer(text)
-    valid_links = text.gsub("](", "~")
-    counter = valid_links.count("~")
+    counter = count_links(text)
     counter.times do
-      k = text.index("(")
-      l = text.index(")")
-      link = text[(k+1)..(l-1)]
-      if link.include?("'")
-        domain_title= link.split("'")
-      elsif link.include?("\"")
-        domain_title= link.split("\"")
-      end
-      link_with_parens = text[k..l]
+      left_parens = text.index("(")
+      right_parens = text.index(")")
+      link = text[(left_parens + 1)..(right_parens - 1)]
+      domain_title = split_domain_title(link)
+      link_with_parens = text[left_parens..right_parens]
       text.sub!("#{link_with_parens}", "")
       if domain_title
         text.sub!("[", "<a href=\"#{domain_title[0].strip}\" title=\"#{domain_title[1]}\">")
@@ -30,5 +24,18 @@ class LinkMaker
       text.sub!("]", "</a>")
     end
     text
+  end
+
+  def self.split_domain_title(link)
+    if link.include?("'")
+      link.split("'")
+    elsif link.include?("\"")
+      link.split("\"")
+    end
+  end
+
+  def self.count_links(text)
+    valid_links = text.gsub("](", "~")
+    valid_links.count("~")
   end
 end
