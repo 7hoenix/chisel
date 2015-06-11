@@ -14,7 +14,9 @@ class Renderer
   end
 
   def list?(chunk)
-    true if chunk.include?("\n*") || chunk.include?("\n1.")
+    chunk_by_line = chunk.split("\n")
+
+    chunk_by_line.any? { |line| line.start_with?("* ") || line.start_with?("1.") }
   end
 
   def render_list(chunk)
@@ -34,7 +36,7 @@ class Renderer
   end
 
   def list_type(chunk)
-    chunk.include?("\n*") ? "ul" : "ol"
+    chunk.include?("* ") ? "ul" : "ol"
   end
 
   def heading(chunk)
