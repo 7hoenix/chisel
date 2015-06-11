@@ -43,8 +43,8 @@ class ChiselTest < Minitest::Test
     chisel_link = Chisel.new(input_files)
 
     actual = chisel_link.get_links
-    expected = ["<p>This is <a href=\"http://example.com/\" title=\"Title\">an example</a>inline link. " +
-    "<a href=\"http://example.net/\">This link</a> has no title attribute.\n</p>"]
+    expected = ["<p>\"This is <a href=\"http://example.com/\" title=\"Title\">an example</a>inline link. " +
+    "<a href=\"http://example.net/\">This link</a> has no title attribute.\"\n</p>"]
     assert_equal expected, actual
   end
 
