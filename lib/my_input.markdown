@@ -18,3 +18,5 @@ My favorite cuisines are:
 1. Sushi
 2. Barbeque
 3. Mexican
+
+This is [an example](http://example.com/ \"Domain_Title\")inline link. [This link](http://example.net/) has no title attribute.
