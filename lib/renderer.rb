@@ -3,7 +3,7 @@ require 'pry'
 class Renderer
   attr_reader :chunked_text
 
-  def initialize( chunked_text )
+  def initialize(chunked_text)
     @chunked_text = chunked_text
   end
 
@@ -18,9 +18,17 @@ class Renderer
   end
 
   def render_list(chunk)
-    list = chunk.strip.split("\n")
+    if chunk.include?("\n*")
+      list = chunk.strip.split("\n")
+      result = list.map { |item| "<li>" + item.gsub("* ", "") + "</li>" }
+    else
+      list = chunk.strip.split("\n")
 
-    result = list.map { |item| "<li>" + item.gsub("* ", "") + "</li>" }
+      result = list.map do |item|
+        i = item.index(".")
+        "<li>" + item.sub("#{item[0..i]} ", "") + "</li>"
+      end
+    end
 
     "<#{list_type(chunk)}>#{result.join}</#{list_type(chunk)}>"
   end

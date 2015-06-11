@@ -27,6 +27,10 @@ class Chisel
     Emphasizer.emphasize(get_rendered)
   end
 
+  def get_links
+    LinkMaker.find_link(get_emphasis)
+  end
+
   def write_output_file
     handler = File.open("#{output_file}", "w")
     handler.write(get_emphasis)
@@ -34,7 +38,7 @@ class Chisel
 end
 
 if __FILE__ == $0
-  chisel = ChiselTemp.new(ARGV[0], ARGV[1])
+  chisel = Chisel.new(ARGV[0], ARGV[1])
   chisel.get_input_text
 end
 
