@@ -38,6 +38,26 @@ class ChiselTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_gets_links_formatted_by_the_link_maker
+    input_files = "./lib/sample_link_input.markdown"
+    chisel_link = Chisel.new(input_files)
+
+    actual = chisel_link.get_links
+    expected = ["<p>This is <a href=\"http://example.com/\" title=\"Title\">an example</a>inline link. " +
+    "<a href=\"http://example.net/\">This link</a> has no title attribute.\n</p>"]
+    assert_equal expected, actual
+  end
+
+  def test_it_looks_like_the_above
+    input_files = "./lib/test_sample_link.markdown"
+    chisel_link = Chisel.new(input_files)
+
+    actual = chisel_link.get_links
+    expected = ["<p><a href=\"http://example.net/\">This link</a> has no title attribute.\n</p>"]
+
+    assert_equal expected, actual
+  end
+
   def test_it_sends_the_html_to_the_output_file
     skip
     output_file = "./lib/sample_output.html"
