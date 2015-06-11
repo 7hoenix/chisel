@@ -1,5 +1,8 @@
 require 'pry'
 require_relative "../lib/chunk_maker"
+require_relative "../lib/emphasizer"
+require_relative "../lib/renderer"
+require_relative "../lib/link_maker"
 
 class Chisel
   attr_reader :input_file, :output_file
@@ -33,12 +36,14 @@ class Chisel
 
   def write_output_file
     handler = File.open("#{output_file}", "w")
-    handler.write(get_emphasis)
+    handler.write(get_links)
   end
 end
 
 if __FILE__ == $0
   chisel = Chisel.new(ARGV[0], ARGV[1])
-  chisel.get_input_text
+  chisel.write_output_file
+  reader = File.open("#{ARGV[1]}", "r")
+  puts "Converted my_#{ARGV[0]} (#{chisel.get_input_text.count("\n")} lines) to #{ARGV[1]} (#{reader.read.count("\n")} lines)"
 end
 
