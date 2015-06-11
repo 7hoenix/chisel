@@ -10,4 +10,5 @@ class ChunkMakerTest < Minitest::Test
 
     assert_equal ["#Hello, *world*", "Hello, **world**"], chunks
   end
+  
 end

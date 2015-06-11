@@ -43,6 +43,7 @@ class Chisel
     handler = File.open("#{output_file}", "w")
     handler.write(get_formatted)
     handler.close
+    get_input_text(output_file)
   end
 end
 

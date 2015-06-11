@@ -25,13 +25,11 @@ class Renderer
       result = list.map { |item| "<li>" + item.gsub("* ", "") + "</li>" }
     else
       list = chunk.strip.split("\n")
-
       result = list.map do |item|
         i = item.index(".")
         "<li>" + item.sub("#{item[0..i]} ", "") + "</li>"
       end
     end
-
     "<#{list_type(chunk)}>#{result.join}</#{list_type(chunk)}>"
   end
 

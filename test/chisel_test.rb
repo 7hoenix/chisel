@@ -9,13 +9,15 @@ require_relative "../lib/chisel"
 
 class ChiselTest < Minitest::Test
   attr_reader :chisel
+
   def setup
     input_file = "./lib/sample_input.markdown"
     @chisel = Chisel.new(input_file)
   end
 
   def test_it_gets_the_input_text_from_the_input_file
-    actual = chisel.get_input_text
+    input_file = "./lib/sample_input.markdown"
+    actual = chisel.get_input_text(input_file)
     expected = "#Hello, *world*\n\nHello, **world**\n"
     assert_equal expected, actual
   end
@@ -58,13 +60,20 @@ class ChiselTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_it_sends_the_html_to_the_output_file
-    skip
-    output_file = "./lib/sample_output.html"
-    chisel = Chisel.new(input_file, output_file)
+  def test_it_returns_a_formatted_string_from_the_formatter
+    actual = chisel.get_formatted
+    expected = "<h1>Hello, <em>world</em></h1>\n<p>Hello, <strong>world</strong>\n</p>"
 
-    actual = chisel.write_output_file
-    expected = ["<h1>Hello, <em>world</em></h1>", "<p>Hello, <strong>world</strong></p>"]
+    assert_equal expected, actual
+  end
+
+  def test_it_sends_the_html_to_the_output_file
+    input_file = "./lib/sample_input.markdown"
+    output_file = "./lib/sample_output.html"
+    output_chisel = Chisel.new(input_file, output_file)
+
+    actual = output_chisel.write_output_file
+    expected = "<h1>Hello, <em>world</em></h1>\n<p>Hello, <strong>world</strong>\n</p>"
     assert_equal expected, actual
   end
 end
